@@ -42,3 +42,13 @@ img {
   color: #495057;
   display: none !important;
 }
+
+h1 {
+  text-shadow: 5px 5px 3px #007bff, -5px -5px 3px #007bff
+}
+
+@media (max-width: 350px) {
+  h1 {
+    font-size: 20vw !important;
+  }
+}

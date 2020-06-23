@@ -1,7 +1,3 @@
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-
 //Today's date for calendar
 let today = new Date().toISOString().split('T')[0];
 document.querySelector("#calendar").setAttribute('min', today);
@@ -84,7 +80,7 @@ document.querySelector("#add-more").addEventListener("click", () => {
     newFile.innerHTML = `
     <div id="main-file-input${filesCount}" class="input-group mb-2 mr-sm-2">
       <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse${filesCount}" class="input-group-prepend hf">
-        <div class="input-group-text">Choose a file...</div>
+        <div class="input-group-text">Additional file</div>
       </div>
       <input id="file-input${filesCount}" type="file" hidden>
       <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input${filesCount}" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >
