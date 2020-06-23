@@ -1,3 +1,6 @@
+//Index of new files
+let filesCount = 1;
+
 //Today's date for calendar
 let today = new Date().toISOString().split('T')[0];
 document.querySelector("#calendar").setAttribute('min', today);
@@ -56,6 +59,7 @@ document.querySelector("#calendar").setAttribute('min', today);
   }, false);
 })();
 
+// To handle file uploading
 function fileInputActive (event) { 
   let fileInput = document.querySelector(`#file-input${event.id.slice(4)}`);
   let fakeFileInput = document.querySelector(`#fake-file-input${event.id.slice(4)}`);
@@ -65,14 +69,19 @@ function fileInputActive (event) {
     if (fileInput.value) {
       fakeFileInput.value = fileInput.value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
       event.querySelector(".remove-file").removeAttribute("hidden");
-      document.querySelector("#add-more").setAttribute("style", "display: block !important");
+      if (document.querySelector("#files-to-upload").children.length >= 5) {
+        document.querySelector("#add-more").setAttribute("style", "display: none !important");
+      } else {
+        document.querySelector("#add-more").setAttribute("style", "display: block !important");
+      }
     }
   });
 };
 
-let filesCount = 1;
-
-document.querySelector("#add-more").addEventListener("click", () => {
+// To create a new file node 
+document.querySelector("#add-more").addEventListener("click", (event) => {
+  event.preventDefault();
+  document.querySelector("#add-more").setAttribute("style", "display: block !important");
   if (document.querySelector("#files-to-upload").children.length <= 4) {
     filesCount++;
     const newFile = document.createElement("div");
@@ -91,10 +100,15 @@ document.querySelector("#add-more").addEventListener("click", () => {
     `;
     document.querySelector("#files-to-upload").appendChild(newFile);
     document.querySelector(`#fake-file-input${filesCount}`).click();
-  }
+    if (document.querySelector("#files-to-upload").children.length >= 5) {
+      document.querySelector("#add-more").setAttribute("style", "display: none !important");
+    }
+  } 
 })
 
+// To remove file nodes
 function removeFile (event) { 
+  document.querySelector("#add-more").setAttribute("style", "display: block !important");  
   let fileID = event.parentElement.parentElement.id;
   if (fileID === "file1") {
     document.querySelector("#add-more").setAttribute("style", "display: none !important");
@@ -103,7 +117,8 @@ function removeFile (event) {
   } else {
     document.querySelector("#files-to-upload").removeChild(event.parentElement.parentElement);
   }
+  if (document.querySelector("#files-to-upload").children.length >= 5) {
+    document.querySelector("#add-more").setAttribute("style", "display: none !important");
+  }
 };
-
-document.querySelector("#add-more").addEventListener("click", (event) => event.preventDefault())
 
