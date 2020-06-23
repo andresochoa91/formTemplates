@@ -3,7 +3,9 @@ let filesCount = 1;
 
 //Today's date for calendar
 let today = new Date().toISOString().split('T')[0];
-document.querySelector("#calendar").setAttribute('min', today);
+let calendar = document.querySelector("#calendar");
+calendar.setAttribute('min', today);
+calendar.setAttribute('value', today);
 
 //To create people options
 (function () {
