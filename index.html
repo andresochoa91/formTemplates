@@ -1,0 +1,227 @@
+<DOCTYPE! HTML>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title>Forms</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <!-- For bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </head>
+  <body onload="form1.reset(); form2.reset()">
+
+    <div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+      <h1 class="text-center display-3 text-white">Form Templates</h1>
+
+
+      <div class="d-flex">
+        <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#modal1">
+          Reservation
+        </button>
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modal1Label">Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+    
+              <div class="modal-body">
+                <form id="form1" class="needs-validation" novalidate>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <input type="text" class="form-control" placeholder="First Name" required>
+                      <div class="invalid-feedback">
+                        First Name required!  
+                      </div>
+                    </div>
+       
+                    <div class="col-md-6 mb-3">
+                      <input type="text" class="form-control" placeholder="Last Name" required>
+                      <div class="invalid-feedback">
+                        Last Name required!
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><img src="./icons/phone.svg" alt="phone-icon"></div>
+                    </div>
+                    <input pattern="^(\+?1\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 444 333 2222" required>
+                    <div class="invalid-feedback">
+                      Invalid phone number. Valid: 444 333 2222, 4443332222, 444-333-2222, (444)333-2222 
+                    </div>
+                  </div>
+    
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><img src="./icons/email.png" alt="email-icon"></div>
+                    </div>
+                    <input placeholder="Email Address" type="email" class="rounded-right form-control" aria-describedby="emailHelp" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
+                  </div>
+    
+                  <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text"><img src="./icons/calendar.png" alt="calendar-icon"></div>
+                    </div>
+                    <input type="date" id="calendar" class="rounded-right form-control" placeholder="mm/dd/yy" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid date.
+                    </div>
+                  </div>
+      
+                  <div class="form-row align-items-center">
+                    <div class="col-md-6 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><img src="./icons/clock.svg" alt="clock-icon"></div>
+                        </div>
+                        <select name="hours" id="hours" class="form-control" required>
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="col-md-6 mb-3">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><img src="./icons/person.svg" alt="prople-icon"></div>
+                        </div>
+                        <select name="people" id="people" class="form-control" required>
+                        </select>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary mx-auto" type="submit">Reserve</button>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#modal2">
+          Join us
+        </button>
+        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true" data-backdrop="static">
+          <div class="modal-dialog mw">
+            <div class="modal-content">
+              <div class="modal-header">
+                <p class="modal-title mx-auto" id="modal2Label">We are happy that you want to be part of our team!</p>
+                <button type="button" class="close" id="close-btn-2" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+    
+              <div class="modal-body">
+                
+                <form id="form2" class="needs-validation" novalidate>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="first-name">First Name</label>
+                      <input type="text" class="form-control" id="first-name" placeholder="Ex: John" required>
+                      <div class="invalid-feedback">
+                        First Name required!  
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="last-name">Last Name</label>
+                      <input type="text" class="form-control" id="last-name" placeholder="Ex: Doe" required>
+                      <div class="invalid-feedback">
+                        Last Name required!  
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="email-join">Email address</label>
+                      <input placeholder="Ex: john@gmail.com" type="email" class="rounded-right form-control" id="email-join" aria-describedby="emailHelp" required>
+                      <div class="invalid-feedback">
+                        Please provide a valid email address.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="phone-join">Phone</label>
+                      <input id="phone-join" pattern="^(\+?1\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 444 333 2211" required>
+                      <div class="invalid-feedback">
+                        Invalid phone number. Ex: 4151112233
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="position-join">Position Aplied</label>
+                    <select id="position-join" class="custom-select" required>
+                      <option value="">Choose...</option>
+                      <option value="1">Front-end Developer</option>
+                      <option value="2">Back-end Developer</option>
+                      <option value="3">Full-stack Developer</option>
+                    </select>
+                    <div class="invalid-feedback">Please choose one position</div>
+                  </div>
+    
+                  <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
+                    <label class="custom-control-label" for="radio1">Full-Time</label>
+                  </div>
+                  
+                  <div class="custom-control custom-radio mb-3">
+                    <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
+                    <label class="custom-control-label" for="radio2">Part-Time</label>
+                    <div class="invalid-feedback">Please choose one option!</div>
+                  </div>
+    
+                  <div class="mb-3">
+                    <label for="textarea-join">What are your workplace skills?</label>
+                    <textarea class="form-control" id="textarea-join" required></textarea>
+                    <div class="invalid-feedback">
+                      This field is required!
+                    </div>
+                  </div>
+                  
+                  <div id="files-to-upload">
+                    <div id="file1">
+                      <label for="file-input1">Upload your resume and list of references (No more than 5 files)</label>
+                      <div id="main-file-input1" class="input-group mb-2 mr-sm-2">
+                        <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse1" class="input-group-prepend hf">
+                          <div class="input-group-text">Here your resume</div>
+                        </div>
+                        <input id="file-input1" type="file" hidden>
+                        <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input1" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >
+                        <button onclick="removeFile(this)" type="button" class="close remove-file" aria-label="Close" hidden>
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="invalid-feedback">
+                          Your resume is required! 
+                        </div>
+                      </div>  
+                    </div>
+
+                  </div>
+
+                  <button id="add-more" class="d-block btn">Add more files</button>
+                  
+                  <button class="btn btn-primary mx-auto mt-3" type="submit">Send</button>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
