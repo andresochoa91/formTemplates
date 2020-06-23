@@ -80,7 +80,7 @@ document.querySelector("#add-more").addEventListener("click", () => {
     newFile.innerHTML = `
     <div id="main-file-input${filesCount}" class="input-group mb-2 mr-sm-2">
       <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse${filesCount}" class="input-group-prepend hf">
-        <div class="input-group-text">Additional file</div>
+        <div class="input-group-text">Extra file</div>
       </div>
       <input id="file-input${filesCount}" type="file" hidden>
       <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input${filesCount}" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >

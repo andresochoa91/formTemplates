@@ -57,7 +57,7 @@
                     </div>
                     <input pattern="^(\+?1\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 444 333 2222" required>
                     <div class="invalid-feedback">
-                      Invalid phone number. Valid: 444 333 2222, 4443332222, 444-333-2222, (444)333-2222 
+                      Valid formats: 444 333 2222, 4443332222, 444-333-2222, (444) 333 2222, (444)333-2222
                     </div>
                   </div>
     
@@ -195,7 +195,7 @@
                       <label for="file-input1">Upload your resume and list of references (Max: 5 files)</label>
                       <div id="main-file-input1" class="input-group mb-2 mr-sm-2">
                         <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse1" class="input-group-prepend hf">
-                          <div class="input-group-text">Here your resume</div>
+                          <div class="input-group-text">Resume</div>
                         </div>
                         <input id="file-input1" type="file" hidden>
                         <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input1" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >
