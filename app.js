@@ -35,11 +35,11 @@ function createScheduleOptions(openTime, closeTime) {
   let hours = document.querySelector("#hours");
   let half = openTimeArray[1].includes('30') ? "30": "00";
   for (let i = 0; i <= numberOfTimeSlots; i++) {
-    if (hour === 12 && ampm === "AM") {
+    if (hour === 12 && ampm === "AM" && half === "00") {
       ampm = "PM"
     } else if (hour === 13) {
       hour = 1;
-    } else if (i === 28) {
+    } else if (hour === 12 && ampm === "PM" && half === "00") {
       ampm = "AM";
     }
     const option = `<option value="${hour}:${half}${ampm}">${hour}:${half} ${ampm}</option>`;
@@ -89,10 +89,6 @@ function shouldAdd12Hours(isTimeAM, isTimeTwelve) {
   }
   return false;
 }
-
-
-
-
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
